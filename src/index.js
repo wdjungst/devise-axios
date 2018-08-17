@@ -43,7 +43,7 @@ export const initMiddleware = (options = {}) => {
       setTokens(storage, headers)
     return response;
   }, (error) => {
-    const { headers } = error
+    const { headers } = error.response
     const oldHeaders = axios.defaults.headers.common
     if (headers['access-token'] && headers['access-token'] !== oldHeaders['access-token'])
       setTokens(storage, headers)
