@@ -1,0 +1,21 @@
+{
+  "name": "devise-axios",
+  "version": "0.0.1",
+  "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "babel src --presets babel-preset-latest --out-dir dist",
+    "prepublish": "npm run build"
+  },
+  "author": "Dave Jungst",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin git@github.com:wdjungst/devise-axios.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-latest": "^6.24.1"
+  }
+}
