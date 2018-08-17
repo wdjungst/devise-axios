@@ -33,7 +33,7 @@ export const initMiddleware = async (options = {}) => {
     storage: localStorage,
   }
 
-  const settings = Object.assign({}, defaults, options )
+  const settings = {...defaults, ...options}
   const { storage } = settings
 
   axios.interceptors.response.use( async (response) => {
@@ -55,8 +55,8 @@ export const initMiddleware = async (options = {}) => {
       switch(path) {
         case validate:
           const headers = await getTokens()
-          request = Object.assign({}, request, headers)
-          const common = Object.assign({}, request.headers.common, headers)
+          request = {...request, ...headers}
+          const common = {...request.headers.common, ...headers}
           axios.defaults.headers.common = common
           request.headers.common = common
           break
