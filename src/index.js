@@ -2,51 +2,51 @@ import axios from 'axios'
 
 const HEADERS = ['access-token', 'token-type', 'client', 'expiry', 'uid']
 
-const setTokens = (headers) => {
+const setTokens = async (storage, headers) => {
   for (let token of HEADERS) {
-    console.log('in loop')
     axios.defaults.headers.common[token] = headers[token]
-    localStorage.setItem(token, headers[token])
+    await storage.setItem(token, headers[token])
   }
-  console.log('out of loop')
 }
 
-export const getTokens = () => {
+export const getTokens = async (storage) => {
   let headers = {}
   for (let token of HEADERS) {
-    const t = localStorage.getItem(token)
+    const t = await localStorage.getItem(token)
     headers[token] = t
   }
 
   return headers
 }
 
-const clearTokens = () => {
+const clearTokens = async (storage) => {
   for (let token of HEADERS) {
-    localStorage.removeItem(token)
+    await localStorage.removeItem(token)
   }
 }
 
-export const initMiddleware = (options = {}) => {
+export const initMiddleware = async (options = {}) => {
   const defaults = {
     authPrefix: '/api/auth',
     signOut: '/sign_out',
     validate: '/validate_token',
+    storage: localStorage,
   }
 
   const settings = Object.assign({}, defaults, options )
+  const { storage } = settings
 
-  axios.interceptors.response.use( (response) => {
+  axios.interceptors.response.use( async (response) => {
     const { headers } = response
     const oldHeaders = axios.defaults.headers.common
     if (headers['access-token'] && headers['access-token'] !== oldHeaders['access-token'])
-      setTokens(headers)
+      await setTokens(headers)
     return response;
   }, (error) => {
     return Promise.reject(error);
   });
 
-  axios.interceptors.request.use( (request) => {
+  axios.interceptors.request.use( async (request) => {
     const { url } = request
     const { authPrefix, signOut, validate } = settings
     const authRegex = new RegExp(authPrefix)
@@ -54,7 +54,7 @@ export const initMiddleware = (options = {}) => {
       const path = url.split(authPrefix)[1]
       switch(path) {
         case validate:
-          const headers = getTokens()
+          const headers = await getTokens()
           request = Object.assign({}, request, headers)
           const common = Object.assign({}, request.headers.common, headers)
           axios.defaults.headers.common = common
