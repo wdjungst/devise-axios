@@ -32,7 +32,7 @@ export const initMiddleware = (options = {}) => {
     validate: '/validate_token',
   }
 
-  const settings = { ...defaults, ...options }
+  const settings = Object.assign({}, defaults, options )
 
   axios.interceptors.response.use( (response) => {
     const { headers } = response
@@ -53,8 +53,8 @@ export const initMiddleware = (options = {}) => {
       switch(path) {
         case validate:
           const headers = getTokens()
-          request = {...request, ...headers }
-          const common = {...request.headers.common, ...headers}
+          request = Object.assign({}, request, headers)
+          const common = Object.assign({}, request.headers.common, headers)
           axios.defaults.headers.common = common
           request.headers.common = common
           break
