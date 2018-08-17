@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const HEADERS = ['access-token', 'token-type', 'client', 'expiry', 'uid']
 
 const setTokens = (headers) => {
