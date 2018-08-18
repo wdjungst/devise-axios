@@ -4,18 +4,19 @@
   "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "babel --plugins transform-async-to-generator src --out-dir dist",
     "prepublish": "npm run build"
   },
   "author": "Dave Jungst",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git remote add origin git@github.com:wdjungst/devise-axios.git"
+    "url": "https://github.com:wdjungst/devise-axios.git"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1"
   }
