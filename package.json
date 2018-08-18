@@ -1,6 +1,6 @@
 {
   "name": "devise-axios",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
   "main": "./dist/index.js",
   "scripts": {
@@ -19,5 +19,8 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1"
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.12.1"
   }
 }

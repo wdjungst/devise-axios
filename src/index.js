@@ -1,4 +1,5 @@
 import axios from 'axios'
+import "regenerator-runtime/runtime"
 
 const HEADERS = ['access-token', 'token-type', 'client', 'expiry', 'uid']
 
