@@ -7,7 +7,8 @@ This package fits a very specific use case.  It's purpose is to keep help keep t
  
 # Installation
 ```npm install devise-axios```
-```
+
+```javascript
 import { initMiddleware } from './utils/api';
 
 initMiddleware()
@@ -15,7 +16,7 @@ initMiddleware()
 
 You can also change the default auth url and options
 
-```
+```javascript
   //defaults
   //{
   //  authPrefix: '/api/auth',
