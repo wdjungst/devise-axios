@@ -13,7 +13,7 @@ const setTokens = async (storage, headers) => {
 export const getTokens = async (storage) => {
   let headers = {}
   for (let token of HEADERS) {
-    const t = await localStorage.getItem(token)
+    const t = await storage.getItem(token)
     headers[token] = t
   }
 
@@ -22,7 +22,7 @@ export const getTokens = async (storage) => {
 
 const clearTokens = async (storage) => {
   for (let token of HEADERS) {
-    await localStorage.removeItem(token)
+    await storage.removeItem(token)
   }
 }
 
