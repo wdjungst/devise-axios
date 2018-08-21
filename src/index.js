@@ -42,7 +42,7 @@ export const initMiddleware = async (options = {}) => {
   }
 
   const settings = {...defaults, ...options}
-  const { storage } = settings
+  const storage = settings.storage
 
   axios.interceptors.response.use( async (response) => {
     const { headers } = response
@@ -85,5 +85,4 @@ export const initMiddleware = async (options = {}) => {
     return Promise.reject(error)
   })
 }
-
 

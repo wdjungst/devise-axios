@@ -22,7 +22,7 @@ const config = {
     ]
   },
   devtool: 'source-map',
-  mode: 'development'
+  mode: 'production'
 }
 
 if (process.env.NODE_ENV === 'production') {
