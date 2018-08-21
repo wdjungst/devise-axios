@@ -27,11 +27,18 @@ const clearTokens = async (storage) => {
 }
 
 export const initMiddleware = async (options = {}) => {
+  let defaultStorage
+  try {
+    defaultStorage = (typeof localStorage === 'undefined') ? {} : localStorage
+  } catch (err) {
+    defaultStorage = {}
+  }
+
   const defaults = {
     authPrefix: '/api/auth',
     signOut: '/sign_out',
     validate: '/validate_token',
-    storage: localStorage,
+    storage: defaultStorage,
   }
 
   const settings = {...defaults, ...options}
@@ -59,7 +66,7 @@ export const initMiddleware = async (options = {}) => {
       const path = url.split(authPrefix)[1]
       switch(path) {
         case validate:
-          const headers = await getTokens()
+          const headers = await getTokens(storage)
           request = {...request, ...headers}
           const common = {...request.headers.common, ...headers}
           axios.defaults.headers.common = common
