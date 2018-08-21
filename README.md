@@ -9,7 +9,7 @@ This package fits a very specific use case.  Its purpose is to help keep track o
 ```npm install devise-axios```
 
 ```javascript
-import { initMiddleware } from './utils/api';
+import { initMiddleware } from 'devise-axios'
 
 initMiddleware()
 ```
@@ -26,5 +26,13 @@ You can also change the default auth url and options
 
   const options = { authPrefix: '/auth' }
   initMiddleware(options)
+```
+
+This works with ReactNative as well. (What?)
+```javascript
+import { AsyncStorage } from 'react-native'
+import { initMiddleware } from 'devise-axios'
+
+initMiddleware({ storage: AsyncStorage })
 ```
 
