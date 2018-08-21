@@ -73,7 +73,7 @@ export const initMiddleware = async (options = {}) => {
           request.headers.common = common
           break
         case signOut:
-          await clearTokens()
+          await clearTokens(storage)
           break
         default:
           return request
