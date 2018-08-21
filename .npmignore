@@ -2,6 +2,5 @@ src
 *.tgz
 demo/
 yarn.lock
-webpack.config.js
 *.log
 
