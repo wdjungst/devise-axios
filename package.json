@@ -6,8 +6,7 @@
   "scripts": {
     "build": "yarn webpack",
     "build:production": "NODE_ENV=production webpack -p",
-    "build:dev": "webpack",
-    "prepublish": "yarn build"
+    "build:dev": "webpack"
   },
   "author": "Dave Jungst",
   "license": "MIT",
@@ -22,13 +21,14 @@
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "axios": "^0.18.0",
-    "babel-loader": "^8.0.2",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.0.0",
+    "babel-loader": "^8.0.2"
   }
 }
