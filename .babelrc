@@ -1,3 +1,11 @@
 {
-  "presets": ["env", "stage-2"]
+  "presets": ["@babel/env"],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+      "corejs": 2,
+      "helpers": true,
+      "regenerator": true,
+      "useESModules": false
+    }]
+  ]
 }
