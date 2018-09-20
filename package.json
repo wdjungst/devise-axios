@@ -4,7 +4,7 @@
   "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "npm run webpack",
     "build:production": "NODE_ENV=production webpack -p",
     "build:dev": "webpack",
     "prepublish": "npm run build"
