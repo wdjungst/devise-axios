@@ -3,4 +3,5 @@ src
 demo/
 yarn.lock
 *.log
+webpack.config.js
 
