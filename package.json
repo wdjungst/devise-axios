@@ -1,6 +1,6 @@
 {
   "name": "devise-axios",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
   "main": "./dist/index.js",
   "scripts": {
@@ -18,10 +18,10 @@
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/runtime": "^7.0.0"
   }
 }
