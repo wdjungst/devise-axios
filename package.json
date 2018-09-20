@@ -4,10 +4,10 @@
   "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "npm run webpack",
+    "build": "yarn webpack",
     "build:production": "NODE_ENV=production webpack -p",
     "build:dev": "webpack",
-    "prepublish": "npm run build"
+    "prepublish": "yarn build"
   },
   "author": "Dave Jungst",
   "license": "MIT",
