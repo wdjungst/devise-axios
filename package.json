@@ -6,7 +6,8 @@
   "scripts": {
     "build": "yarn webpack",
     "build:production": "NODE_ENV=production webpack -p",
-    "build:dev": "webpack"
+    "build:dev": "webpack",
+    "prepublish": "yarn build"
   },
   "author": "Dave Jungst",
   "license": "MIT",

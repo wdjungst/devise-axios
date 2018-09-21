@@ -9,11 +9,18 @@ module.exports = {
   },
   externals: {
     axios: {
-       commonjs: 'axios',
-       commonjs2: 'axios',
-       amd: 'axios',
-       root: 'axios'
-     }
+      commonjs: 'axios',
+      commonjs2: 'axios',
+      amd: 'axios',
+      root: 'axios'
+    }
+  },
+  resolve: {
+    modules: [
+      "node_modules",
+      path.resolve(__dirname, "src")
+    ],
+    extensions: [".js"]
   },
   module: {
     rules: [
@@ -26,7 +33,22 @@ module.exports = {
           path.resolve(__dirname, 'node_modules')
         ],
         loader: 'babel-loader',
+        options: {
+          presets: ["@babel/preset-env"],
+          plugins: [
+            ["@babel/plugin-transform-runtime", {
+              "corejs": false,
+              "helpers": true,
+              "regenerator": true,
+              "useESModules": false
+            }]
+          ]
+        }
       }
     ]
-  }
+  },
+  optimization: {
+     minimize: false
+   },
+  mode: 'production'
 };
