@@ -1,10 +1,10 @@
 {
   "name": "devise-axios",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "yarn webpack",
+    "build": "babel src --out-dir dist",
     "build:production": "NODE_ENV=production webpack -p",
     "build:dev": "webpack",
     "prepublish": "yarn build"
