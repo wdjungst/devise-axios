@@ -34,17 +34,10 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ["@babel/preset-env"],
-          plugins: [
-            ["@babel/plugin-transform-runtime", {
-              "corejs": false,
-              "helpers": true,
-              "regenerator": true,
-              "useESModules": false
-            }]
-          ]
         }
       }
     ]
   },
-  mode: 'production'
+  mode: 'development',
+  devtool: 'source-map'
 };
