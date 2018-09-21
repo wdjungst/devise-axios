@@ -7,19 +7,7 @@ module.exports = {
     filename: 'index.js'
   },
   externals: {
-    axios: {
-      commonjs: 'axios',
-      commonjs2: 'axios',
-      amd: 'axios',
-      root: 'axios'
-    }
-  },
-  resolve: {
-    modules: [
-      "node_modules",
-      path.resolve(__dirname, "src")
-    ],
-    extensions: [".js"]
+    axios: 'axios'
   },
   module: {
     rules: [
