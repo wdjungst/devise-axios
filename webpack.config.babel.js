@@ -4,8 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    library: 'devise-axios'
+    filename: 'index.js'
   },
   externals: {
     axios: {
@@ -47,8 +46,5 @@ module.exports = {
       }
     ]
   },
-  optimization: {
-     minimize: false
-   },
   mode: 'production'
 };
