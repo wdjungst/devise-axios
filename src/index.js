@@ -25,7 +25,7 @@ const clearTokens = async (storage) => {
   }
 }
 
-const initMiddleware = async (options = {}) => {
+export const initMiddleware = async (options = {}) => {
   let defaultStorage
   try {
     defaultStorage = (typeof localStorage === 'undefined') ? {} : localStorage
@@ -85,4 +85,3 @@ const initMiddleware = async (options = {}) => {
   })
 }
 
-export default initMiddleware

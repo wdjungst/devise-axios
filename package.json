@@ -1,6 +1,6 @@
 {
   "name": "devise-axios",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Middleware for keeping track of devise token auth tokens on authenticated requests",
   "main": "./dist/index.js",
   "scripts": {
